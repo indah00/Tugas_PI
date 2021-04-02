@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form Ubah-Mahasiswa</title>
+	<link rel="stylesheet" href="<?php echo base_url() ?>asset/bootstrap/bootstrap.css"/>
+	 <script src="<?php echo base_url() ?>asset/bootstrap/bootstrap.js"></script>
+    <script src="<?php echo base_url() ?>asset/bootstrap/jquery-3.2.1.min"></script>
+</head>
+<body>
+	<h1>Form Update Data Mahasiswa</h1>
+	<hr>
+	<div style="color: red;"><?php echo validation_errors(); ?></div>
+	<?php echo form_open("mahasiswa/ubah/".$mahasiswa->nis); ?>
+	<table cellpadding="8">
+		<tr>
+			<td>NIM</td>
+			<td><input type="text" name="input_nis" value="<?php echo set_value('input_nis',$mahasiswa->nis); ?>"readonly></td>
+		</tr>
+		<tr>
+			<td>Nama</td>
+			<td><input type="text" name="input_nama" value="<?php echo set_value('input_nama',$mahasiswa->nama); ?>">
+			</td>
+		</tr>
+		<tr>
+		<td>Jenis Kelamin</td>
+		<td><input type="radio" name="input_jeniskelamin" value="laki-laki"<?php echo set_radio('jeniskelamin','laki-laki',($mahasiswa->jenis_kelamin == "laki-laki")? true : false); ?>>Laki-Laki
+			<input type="radio" name="input_jeniskelamin" value="Perempuan"<?php echo set_radio('jeniskelamin','Perempuan',($mahasiswa->jenis_kelamin  == "Perempuan")? true : false); ?>>Perempuan
+		</td>
+		</tr>
+		<tr>
+			<td>Telepon</td>
+			<td><input type="text" name="input_telp" value="<?php echo set_value('input_telp',$mahasiswa->telp); ?>">
+			</td>
+		</tr>
+		<tr>
+			<td>Alamat</td>
+			<td><textarea name="input_alamat"><?php echo set_value('input_alamat',$mahasiswa->alamat); ?></textarea></td>
+		</tr>
+	</table>
+
+	<hr>
+	<input type="submit" name="submit" value="Ubah" style="background : powderblue;">
+	<a href="<?php echo base_url();?>"><input type="button" value="Batal" style="background : powderblue;"></a>
+	<?php echo form_close(); ?>
+
+</body>
+</html>
